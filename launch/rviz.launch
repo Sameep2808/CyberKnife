@@ -1,0 +1,20 @@
+<launch>
+	<param name= "robot_description" command="$(find xacro)/xacro $(find finale)/urdf/my_robot_integration.urdf.xacro" />
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+	
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find finale)/launch/config.rviz"/>
+	<node pkg="tf" type="static_transform_publisher" name="map_to_base" args="1 0 0 0 0 0 1 /map /base_link 10" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="True"/>  
+        </node> 
+        
+        <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false"
+    	output="screen" ns="/finale" args="joint_state_controller
+    					    j1
+    					   j2
+    					   j3
+    					   j4
+    					   j5
+    					   j6" />
+</launch>
