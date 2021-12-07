@@ -84,13 +84,14 @@ def ikk(x,y,z,phi,e):
 	pub_c2.publish(theta_1)
 	pub_c3.publish(theta_2)
 	pub_c4.publish(theta_3)
-	#print(rad2deg(theta_0))
+	print(rad2deg(e))
+	print(rad2deg(theta_0))
 	if(rad2deg(theta_0) > 45):
-		pub_c5.publish(-theta_0)
+		pub_c5.publish(e-theta_0)
 	if(round(rad2deg(theta_0),2) == 45):
-		pub_c5.publish(0)
+		pub_c5.publish(e-theta_0)
 	if(rad2deg(theta_0) < 45):
-		pub_c5.publish((1.5708-theta_0))
+		pub_c5.publish(-(-e+theta_0))
 	
 
 def gcor(x,y,z,t):
@@ -105,14 +106,14 @@ def callback(msg):
 	global xd,yd
 	for i in range(360,700):
 		if(msg.ranges[i]<=2):
-			xd=-msg.ranges[i]*cos(deg2rad(i/4))
-			yd=0.4+msg.ranges[i]*sin(deg2rad(i/4))
+			xd=0.4-msg.ranges[i]*cos(deg2rad(i/4))
+			yd=0+msg.ranges[i]*sin(deg2rad(i/4))
 	
 	
 if __name__=="__main__":
 	rospy.init_node('cik1')
 	settings = termios.tcgetattr(sys.stdin)
-	a,s,x,y,z=0,45,1000,1000,400
+	a,s,x,y,z=0,45,850,950,400
 	global xd,yd
 	xd,yd=0,0
 	rate = rospy.Rate(10)
@@ -123,7 +124,7 @@ if __name__=="__main__":
 		key = getKey()
 		if key == 'w':
 			c=gcor(x,y,z,a)
-			p=rad2deg(arctan2((y-c[1][0]),(x-c[0][0])))
+			p=(arctan2((y-c[1][0]),(x-c[0][0])))
 			ikk(c[0][0],c[1][0],z,90,p)
 			a=a+s
 			#print("phi =",90)

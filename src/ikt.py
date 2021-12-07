@@ -52,10 +52,10 @@ def solve(T):
 def getqdot(J,xc,yc,zc,xd,yd,zd):
 	J_inv=np.linalg.pinv(J)
 	print(J_inv)
-	Xdot=sy.Matrix([[xd-xc,yd-yc,zd-zc,0,0,0]])
+	Xdot=sy.Matrix([[xd-xc,yd-yc,zd-zc]])
 	Xdot=np.array(Xdot,dtype='float')
-	#Xdot_f=np.zeros((Xdot.shape[0],2*Xdot.shape[1]))
-	#Xdot_f[:,:3]=Xdot
+	Xdot_f=np.zeros((Xdot.shape[0],2*Xdot.shape[1]))
+	Xdot_f[:,:3]=Xdot
 	Qdot=J_inv@Xdot.T
 	Qdot=Qdot.T
 	Qdot=np.array(Qdot,dtype=float)
@@ -111,7 +111,7 @@ if __name__=="__main__":
 	
 	T=T0_5
 	#xd,yd,zd=0,0,1920.24
-	xd,yd,zd=1000,1000,0
+	xd,yd,zd=1555,50,1120
 	Q=np.zeros(5)
 	Q=np.array([0,pi/2,0,0,0])
 	#print(Q)
@@ -155,9 +155,9 @@ if __name__=="__main__":
 	
 	pri(Q)
 	#print(Q)
-	T0_w=T0_5.subs({theta1:0,theta2:0,theta3:0,theta4:pi/2,theta5:0,theta6:0})
+	T0_w=T0_5.subs({theta1:0,theta2:0,theta3:0,theta4:0,theta5:0,theta6:0})
 	T0_w=nsimplify(T0_w,tolerance=1e-3,rational=True)
-	#print(T0_w)
+	print(T0_w)
 	T0_w=T0_5.subs({theta1:Q[0,0],theta2:Q[0,1],theta3:Q[0,2],theta4:Q[0,3],theta5:Q[0,4]})
 	T0_w=nsimplify(T0_w,tolerance=1e-3,rational=True)
 	print(T0_w)
