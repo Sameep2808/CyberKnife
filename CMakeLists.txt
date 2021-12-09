@@ -4,7 +4,7 @@ project(finale)
 add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  move_base_msgs
+  
   roscpp
   rospy
   std_msgs
@@ -12,7 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 generate_messages(
   DEPENDENCIES
-  geometry_msgs  move_base_msgs std_msgs
+  geometry_msgs std_msgs
 )
 
 catkin_package()
