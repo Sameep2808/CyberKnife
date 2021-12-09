@@ -113,7 +113,7 @@ def callback(msg):
 if __name__=="__main__":
 	rospy.init_node('cik1')
 	settings = termios.tcgetattr(sys.stdin)
-	a,s,x,y,z=0,45,850,950,400
+	a,s,x,y,z=0,45,1000,1000,400
 	global xd,yd
 	xd,yd=0,0
 	rate = rospy.Rate(10)

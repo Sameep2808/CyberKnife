@@ -14,6 +14,7 @@
 #define PI 3.14159265
 
 int k = 0;
+int c=0;
 double x,y;
 ros::Publisher pub;
 void chatterCallback(const sensor_msgs::LaserScan::ConstPtr &data) {
@@ -21,7 +22,7 @@ void chatterCallback(const sensor_msgs::LaserScan::ConstPtr &data) {
   //ROS_INFO("At 0: [%f]", (data -> ranges[0]));
   //ROS_INFO("At 90: [%f]", (data -> ranges[360]));
   //ROS_INFO("At 180: [%f]", (data -> ranges[719]));
-  while(k<5)
+  while(k<1)
   	{
   	for(int i=0; i<360; i++)
   {
@@ -29,19 +30,21 @@ void chatterCallback(const sensor_msgs::LaserScan::ConstPtr &data) {
   	{
   		x += (data -> ranges[i])*cos((i/4)*(PI/180.0));
   		y += (data -> ranges[i])*sin((i/4)*(PI/180.0));
+  		c++;
   	}
   }
-  for(int i=0; i<720; i++)
+  for(int i=360; i<720; i++)
   {
   	if(data -> ranges[i]<=2)
   	{
   		y += (data -> ranges[i])*cos(((i-360)/4)*(PI/180.0));
   		x += -(data -> ranges[i])*sin(((i-360)/4)*(PI/180.0));
+  		c++;
   	}
   }
   k++;
   }
-  ROS_INFO("At x,y: [%f, %f]", x/(5*720),y/(5*720));
+  ROS_INFO("At x,y: [%f, %f]", -x/(c),0.4+y/(c));
   	
 }
 
