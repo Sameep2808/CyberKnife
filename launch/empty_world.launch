@@ -51,12 +51,7 @@
     	<param name="publish_frequency" type="double" value="5.0" />
     </node>	
     
-    <node
-		pkg = "finale"
-		name = "detect"
-		type = "detect"
-		output = "screen"
-		launch-prefix="gnome-terminal --command"/>
+    
 
     <!-- A node to spawn the robot into gazebo's world file. Notice that the args has the param robot_description that you previously defined. This is how your robot's spec gets included.-->
    	<node

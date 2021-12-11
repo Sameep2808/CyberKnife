@@ -123,6 +123,8 @@ if __name__=="__main__":
 		sub = rospy.Subscriber('/laser/scan', LaserScan, callback)
 		key = getKey()
 		if key == 'w':
+			if a<0 or a>90:
+				a=0
 			c=gcor(x,y,z,a)
 			p=(arctan2((y-c[1][0]),(x-c[0][0])))
 			ikk(c[0][0],c[1][0],z,90,p)
@@ -130,6 +132,8 @@ if __name__=="__main__":
 			#print("phi =",90)
 			print("Next angle =",a)
 		if key == 's':
+			if a<0 or a>90:
+				a=0
 			c=gcor(x,y,z,a)
 			pd=sqrt((y-c[1][0])**2 + (x-c[0][0])**2)
 			cp=arccos(pd/700)

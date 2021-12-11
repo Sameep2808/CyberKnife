@@ -51,12 +51,12 @@ def solve(T):
 
 def getqdot(J,xc,yc,zc,xd,yd,zd):
 	J_inv=np.linalg.pinv(J)
-	print(J_inv)
+	#print(J_inv)
 	Xdot=sy.Matrix([[xd-xc,yd-yc,zd-zc]])
 	Xdot=np.array(Xdot,dtype='float')
 	Xdot_f=np.zeros((Xdot.shape[0],2*Xdot.shape[1]))
 	Xdot_f[:,:3]=Xdot
-	Qdot=J_inv@Xdot.T
+	Qdot=J_inv@Xdot_f.T
 	Qdot=Qdot.T
 	Qdot=np.array(Qdot,dtype=float)
 	return Qdot
@@ -116,7 +116,7 @@ if __name__=="__main__":
 	Q=np.array([0,pi/2,0,0,0])
 	#print(Q)
 	Ta=T.subs({theta1:Q[0],theta2:Q[1],theta3:Q[2],theta4:Q[3],theta5:Q[4]})
-	Ta=nsimplify(Ta,tolerance=1e-3,rational=True)
+	Ta=nsimplify(Ta,tolerance=1e-1,rational=True)
 	Ta=np.array(Ta,dtype=float)
 	xc,yc,zc=Ta[0,3],Ta[1,3],Ta[2,3]
 	print("TF =",Ta)
@@ -130,7 +130,7 @@ if __name__=="__main__":
 	J=J.subs({theta1:Q[0],theta2:Q[1],theta3:Q[2],theta4:Q[3],theta5:Q[4]})
 	J=nsimplify(J,tolerance=1e-3,rational=True)
 	J=np.array(J,dtype=float)
-	print("JF =",J)
+	#print("Jacobian =",J)
 	qd=getqdot(J,xc,yc,zc,xd,yd,zd)
 	Q=Q+qd
 	#print()
@@ -157,8 +157,8 @@ if __name__=="__main__":
 	#print(Q)
 	T0_w=T0_5.subs({theta1:0,theta2:0,theta3:0,theta4:0,theta5:0,theta6:0})
 	T0_w=nsimplify(T0_w,tolerance=1e-3,rational=True)
-	print(T0_w)
+	#print(T0_w)
 	T0_w=T0_5.subs({theta1:Q[0,0],theta2:Q[0,1],theta3:Q[0,2],theta4:Q[0,3],theta5:Q[0,4]})
 	T0_w=nsimplify(T0_w,tolerance=1e-3,rational=True)
-	print(T0_w)
+	#print(T0_w)
 	

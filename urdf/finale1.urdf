@@ -169,8 +169,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-3.14"
-      upper="3.14"
+      lower="-3.78"
+      upper="0.64"
       effort="100"
       velocity="0.1" />
     <dynamics
@@ -230,8 +230,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-3.14"
-      upper="3.14"
+      lower="-2.8"
+      upper="2.8"
       effort="100"
       velocity="0.1" />
     <dynamics
@@ -291,8 +291,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-3.14"
-      upper="3.14"
+      lower="-2"
+      upper="2"
       effort="100"
       velocity="0.1" />
     <dynamics
