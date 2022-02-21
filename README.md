@@ -95,13 +95,7 @@ without the joint state controller the arm used to collapse.
 the object
 3. Problems faced launching Joint State Publisher GUI
 
-## Downloading the turtlebot3 package 
-1. In new terminal
-```
-cd ~/catkin_ws/src/
-git clone https://github.com/Sameep2808/CyberKnife.git
-cd ~/catkin_ws && catkin_make
-```
+
 
 ## Steps to Build package
 1. Create Catkin Workspace
@@ -111,7 +105,7 @@ catkin_make clean && catkin_make
 ```
 2. Copy the repository in src folder of catkin workspace
 ```
-git clone --recursive https://github.com/Sameep2808/gas.git
+git clone https://github.com/Sameep2808/CyberKnife.git
 cd ..
 catkin_make clean && catkin_make
 source ./devel/setup.bash
