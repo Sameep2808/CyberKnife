@@ -48,6 +48,8 @@ the coordinate frame at each joint. The exported URDF meshes of the Robot and th
 further used for simulation in Gazebo. The tool outputs all the necessary folders and files to
 launch the robot in an empty world.
 
+![pic1](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-49-17.png)
+
 ## Application
 The project revolves around designing and simulating a CyberKnife. CyberKnife is 
 a non-surgical Robotic Radiosurgery system that destroys tumors using highly precise, 
