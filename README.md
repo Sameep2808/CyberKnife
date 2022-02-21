@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Authors
 - [Sameep Pote](https://github.com/Sameep2808) - Graduate student at University of Maryland pursuing M.Eng. Robotics.Loves to watch animes.
+- [Atharva Paralikar](https://github.com/Sameep2808) - Graduate student at University of Maryland.
 ## License
 ```
 MIT License
@@ -40,7 +41,7 @@ SOFTWARE.
 ## Working
 
 
-##Application
+## Application
 The project revolves around designing and simulating a CyberKnife. CyberKnife is a non-surgical Robotic Radiosurgery system that destroys tumors using highly precise, targeted radiation, with minimal damage to surrounding healthy tissue. Unlike traditional radiation therapy that can take multiple sessions, this therapy is complete in fewer sessions. This therapy is as effective as other radiation therapies but without the side effects. This is a simple painless process and patients can resume normal activity almost immediately. Surgical Robots have gained prominence in recent years due to their accuracy, repeatability, and robustness. Cyber-Knife used in radio surgery has numerous advantages hence studying it is necessary and important. Due to the need of multiple orientations, this problem is a good lesson in handling such real-world problems. This application requires us to design a manipulator to be able to fire the laser beam at a particular point in space from multiple orientations.
 
 
