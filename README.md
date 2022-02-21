@@ -50,6 +50,27 @@ launch the robot in an empty world.
 
 ![pic1](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-49-17.png)
 
+## Denavit-Hartenberg Parameters
+![pic2](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-52-56.png)
+![pic3](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-53-14.png)
+
+## Control Methods
+Control Methods used in our project for controlling all the joins of the CyberKnife are Joint Position
+Controller from effort controllers and Joint State Controller. The Joint Position Controller commands a
+desired position to the joint. The position is controlled using PID control to specify the effort to the joint.
+When started, the controller will command to the current position. The joint state controller is used to
+simulate the prototype in Rviz using the joint state publisher GUI. Using it makes studying the workspace
+of the robot easy as we can manually control individual joints through a simple slider GUI. For autonomous
+working of the robot, we use the Joint Position controller as its command sends the respective joints at
+desired position and stabilizes over there using the built-in PID controller in the effort controller.
+![pic4](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-54-17.png)
+
+## Gazebo and Rviz Visualization
+The following Images represent Rviz and Gazebo Visualization using LiDAR. The red line in Rviz
+represents that the LiDAR has successfully detected an object in front of the arm and the node terminal on
+the right shows the exact location of the detected object.
+![pic5](https://github.com/Sameep2808/CyberKnife/blob/main/pics/Screenshot%20from%202022-02-20%2019-55-01.png)
+
 ## Application
 The project revolves around designing and simulating a CyberKnife. CyberKnife is 
 a non-surgical Robotic Radiosurgery system that destroys tumors using highly precise, 
@@ -64,6 +85,15 @@ problem is a good lesson in handling such real-world problems. This application 
 to design a manipulator to be able to fire the laser beam at a particular point in space 
 from multiple orientations.
 
+
+
+## Problems Faced and Mitigation
+The following are the problems faced by us during the execution of the given project:
+1. While launching the URDF file in Gazebo world we observed that at a default inertia and friction
+without the joint state controller the arm used to collapse.
+2. The YD LiDAR used was a 3D LiDAR hence gave multiple distance values and not the center of
+the object
+3. Problems faced launching Joint State Publisher GUI
 
 ## Downloading the turtlebot3 package 
 1. In new terminal
