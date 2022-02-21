@@ -41,7 +41,13 @@ SOFTWARE.
 ## Working
 
 ## CAD Model
-The robot was designed using SolidWorks. The configuration of joints was inspired from a real CyberKnife robot.
+The robot was designed using SolidWorks. The configuration of joints was inspired from a real
+CyberKnife robot. The parts were designed and assembled with comparable dimensions of a real
+CyberKnife. The URDF was created using the SW2URDF utility. Special care was taken while assigning
+the coordinate frame at each joint. The exported URDF meshes of the Robot and the URDF file were
+further used for simulation in Gazebo. The tool outputs all the necessary folders and files to
+launch the robot in an empty world.
+
 ## Application
 The project revolves around designing and simulating a CyberKnife. CyberKnife is 
 a non-surgical Robotic Radiosurgery system that destroys tumors using highly precise, 
